@@ -2,101 +2,216 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>All Notepad Pro</title>
+    
     <style>
         /* =========================================
-           CSS VARIABLES FOR THEMES
+           10 MULTI-THEME VARIABLE CONFIGURATION
            ========================================= */
         :root {
-            --primary-color: #7B6647;
-            --bg-color: #F5F2D0;
-            --text-color: #333333;
-            --card-bg: #FFFFFF;
-            --sidebar-bg: #2C2C2C;
-            --sidebar-text: #E0E0E0;
-            --border-color: #D1CBA8;
+            /* 1. Light Mode (Warm Sand) - Default */
+            --primary-color: #7B5B3A;
+            --bg-color: #F5F0D6;
+            --text-color: #2C2520;
+            --card-bg: #FFFDF5;
+            --sidebar-bg: #241C15;
+            --sidebar-header: #63472B;
+            --sidebar-text: #F5F0D6;
+            --border-color: #D8CEB2;
+            --fab-color: #C0392B;
         }
 
         [data-theme="dark"] {
-            --primary-color: #27241D;
+            /* 2. Dark Night Theme */
+            --primary-color: #1F1B18;
             --bg-color: #121212;
-            --text-color: #E0E0E0;
+            --text-color: #E8E6E3;
             --card-bg: #1E1E1E;
-            --sidebar-bg: #000000;
+            --sidebar-bg: #0D0D0D;
+            --sidebar-header: #1F1B18;
             --sidebar-text: #FFFFFF;
             --border-color: #333333;
+            --fab-color: #E74C3C;
+        }
+
+        [data-theme="gold"] {
+            /* 3. Royal Gold Theme */
+            --primary-color: #8A6D1B;
+            --bg-color: #FDF8E4;
+            --text-color: #3A2E0B;
+            --card-bg: #FFFFFF;
+            --sidebar-bg: #292006;
+            --sidebar-header: #8A6D1B;
+            --sidebar-text: #FFF8DC;
+            --border-color: #E2CE8B;
+            --fab-color: #B8860B;
+        }
+
+        [data-theme="ocean"] {
+            /* 4. Ocean Blue Theme */
+            --primary-color: #1B4F72;
+            --bg-color: #EBF5FB;
+            --text-color: #154360;
+            --card-bg: #FFFFFF;
+            --sidebar-bg: #0E2A3D;
+            --sidebar-header: #1B4F72;
+            --sidebar-text: #EBF5FB;
+            --border-color: #AED6F1;
+            --fab-color: #2980B9;
+        }
+
+        [data-theme="forest"] {
+            /* 5. Forest Green Theme */
+            --primary-color: #1E5631;
+            --bg-color: #E9F5EC;
+            --text-color: #143820;
+            --card-bg: #FFFFFF;
+            --sidebar-bg: #0F2B18;
+            --sidebar-header: #1E5631;
+            --sidebar-text: #E9F5EC;
+            --border-color: #A9DFBF;
+            --fab-color: #27AE60;
+        }
+
+        [data-theme="crimson"] {
+            /* 6. Sunset Crimson Theme */
+            --primary-color: #7B241C;
+            --bg-color: #FDEDEC;
+            --text-color: #4A120E;
+            --card-bg: #FFFFFF;
+            --sidebar-bg: #2C0F0B;
+            --sidebar-header: #7B241C;
+            --sidebar-text: #FDEDEC;
+            --border-color: #FADBD8;
+            --fab-color: #E74C3C;
+        }
+
+        [data-theme="purple"] {
+            /* 7. Classic Orchid Purple Theme */
+            --primary-color: #512E5F;
+            --bg-color: #F5EEF8;
+            --text-color: #2A1435;
+            --card-bg: #FFFFFF;
+            --sidebar-bg: #1A0F21;
+            --sidebar-header: #512E5F;
+            --sidebar-text: #F5EEF8;
+            --border-color: #E8DAEF;
+            --fab-color: #8E44AD;
+        }
+
+        [data-theme="cyberpunk"] {
+            /* 8. Cyberpunk Neon Theme */
+            --primary-color: #8800ff;
+            --bg-color: #0c001a;
+            --text-color: #00ffcc;
+            --card-bg: #14002e;
+            --sidebar-bg: #030007;
+            --sidebar-header: #390066;
+            --sidebar-text: #00ffcc;
+            --border-color: #390066;
+            --fab-color: #ff007f;
+        }
+
+        [data-theme="lavender"] {
+            /* 9. Lavender Soft Theme */
+            --primary-color: #4A47A3;
+            --bg-color: #F0F0FA;
+            --text-color: #1A1A54;
+            --card-bg: #FFFFFF;
+            --sidebar-bg: #151540;
+            --sidebar-header: #4A47A3;
+            --sidebar-text: #F0F0FA;
+            --border-color: #D3D3F7;
+            --fab-color: #706FD3;
+        }
+
+        [data-theme="chocolate"] {
+            /* 10. Chocolate Brown Theme */
+            --primary-color: #3E2723;
+            --bg-color: #EFEBE9;
+            --text-color: #1B0F0D;
+            --card-bg: #FFFFFF;
+            --sidebar-bg: #1A0D0B;
+            --sidebar-header: #3E2723;
+            --sidebar-text: #EFEBE9;
+            --border-color: #D7CCC8;
+            --fab-color: #5D4037;
         }
 
         /* =========================================
-           BASE STYLES
+           BASE SCREEN & GENERAL LAYOUT STYLE
            ========================================= */
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
             overflow-x: hidden;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color .35s ease, color .35s ease;
+            min-height: 100vh;
         }
 
         /* =========================================
-           HEADER & NAVIGATION
+           HEADER (STICKY & SAFARI INSET COMPATIBLE)
            ========================================= */
         header {
             background-color: var(--primary-color);
             color: #fff;
-            padding: 15px 20px;
+            padding: calc(env(safe-area-inset-top, 0px) + 16px) 20px 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 8px rgba(0,0,0,.25);
             position: sticky;
             top: 0;
-            z-index: 10;
+            z-index: 20;
+            transition: background-color .35s ease;
         }
 
         .header-left {
             display: flex;
             align-items: center;
+            gap: 16px;
         }
 
         .menu-btn {
             font-size: 26px;
             cursor: pointer;
-            margin-right: 15px;
             background: transparent;
             border: none;
             color: #fff;
-            padding: 0;
+            padding: 4px;
             line-height: 1;
+            display: flex;
+            align-items: center;
         }
 
-        h2 {
+        header h1 {
             margin: 0;
             font-size: 20px;
             font-weight: 600;
-        }
-
-        .add-btn-header {
-            background: transparent;
-            border: 2px solid #fff;
-            color: #fff;
-            font-size: 20px;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
+            letter-spacing: .3px;
         }
 
         /* =========================================
-           SIDEBAR MENU
+           SIDEBAR MENU (TRANSITION SMOOTH & SHADOW)
            ========================================= */
+        .side-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.5);
+            z-index: 90;
+            backdrop-filter: blur(2px);
+        }
+
         .side-menu {
             height: 100%;
             width: 0;
@@ -106,84 +221,185 @@
             left: 0;
             background-color: var(--sidebar-bg);
             overflow-x: hidden;
-            transition: 0.4s;
-            padding-top: 60px;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.5);
-        }
-
-        .side-menu a {
-            padding: 15px 20px;
-            text-decoration: none;
-            font-size: 16px;
-            color: var(--sidebar-text);
-            display: block;
-            transition: 0.2s;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .side-menu a:hover {
-            background-color: rgba(255,255,255,0.1);
-            padding-left: 25px;
-        }
-
-        .side-menu .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 30px;
-            border: none;
+            transition: width .3s cubic-bezier(.4, 0, .2, 1);
+            box-shadow: 4px 0 15px rgba(0,0,0,.4);
+            display: flex;
+            flex-direction: column;
         }
 
         .menu-header {
-            padding: 0 20px 20px 20px;
+            background-color: var(--sidebar-header);
+            padding: calc(env(safe-area-inset-top, 0px) + 28px) 20px 20px;
             color: #fff;
-            border-bottom: 2px solid var(--primary-color);
-            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .menu-header h2 {
+            margin: 0 0 6px;
+            font-size: 21px;
+            font-weight: 700;
+        }
+
+        .menu-header p {
+            margin: 0;
+            font-size: 13px;
+            opacity: .9;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: calc(env(safe-area-inset-top, 0px) + 12px);
+            right: 15px;
+            font-size: 28px;
+            color: #fff;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .menu-links {
+            padding: 10px 0;
+            flex: 1;
+        }
+
+        .side-menu a {
+            padding: 15px 22px;
+            text-decoration: none;
+            font-size: 16px;
+            color: var(--sidebar-text);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: background .2s, padding-left .2s;
+            border-bottom: 1px solid rgba(255,255,255,.06);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .side-menu a:active, .side-menu a:hover {
+            background-color: rgba(255,255,255,.12);
+            padding-left: 28px;
         }
 
         /* =========================================
-           MAIN APP & NOTES LIST
+           MAIN WRAPPER & SEARCH BAR
            ========================================= */
         #app {
-            padding: 20px;
-            padding-bottom: 80px; /* Space for banner ad */
+            padding: 18px;
+            padding-bottom: 90px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .search-wrap {
+            position: relative;
+            margin-bottom: 18px;
         }
 
         .search-bar {
             width: 100%;
-            padding: 12px;
-            font-size: 16px;
+            padding: 13px 16px 13px 42px;
+            font-size: 15px;
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            margin-bottom: 20px;
+            border-radius: 10px;
             background-color: var(--card-bg);
             color: var(--text-color);
-            box-sizing: border-box;
+            outline: none;
+            box-shadow: 0 2px 6px rgba(0,0,0,.04);
         }
 
+        .search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+            opacity: .6;
+        }
+
+        /* =========================================
+           ARTS & THEMES AREA (VISIBLE DIRECTLY ON OPTION)
+           ========================================= */
+        .theme-card {
+            display: none;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(0,0,0,.18);
+            margin-bottom: 22px;
+            border: 1px solid var(--border-color);
+            animation: fadeIn .25s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .theme-card h3 {
+            margin: 0 0 14px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-select {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin-bottom: 14px;
+            outline: none;
+            font-weight: 500;
+        }
+
+        .theme-save-btn {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 13px 18px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,.2);
+        }
+
+        /* =========================================
+           NOTES GRID & LIST STYLE
+           ========================================= */
         .notes-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 15px;
+            gap: 14px;
         }
 
         .note-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,.05);
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: transform .15s;
         }
 
         .note-card:active {
-            transform: scale(0.98);
+            transform: scale(.98);
         }
 
         .note-card h3 {
-            margin: 0 0 10px 0;
-            font-size: 18px;
+            margin: 0 0 8px;
+            font-size: 17px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -191,62 +407,77 @@
 
         .note-card p {
             margin: 0;
-            color: #777;
+            opacity: .75;
             font-size: 14px;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            line-height: 1.5;
         }
 
         .note-date {
             display: block;
             margin-top: 10px;
-            font-size: 12px;
-            color: #aaa;
+            font-size: 11px;
+            opacity: .55;
             text-align: right;
         }
 
         .empty-state {
             text-align: center;
-            padding: 50px 20px;
-            color: #888;
+            padding: 65px 20px;
+            opacity: .75;
+        }
+
+        .empty-state h2 {
+            margin: 0 0 8px;
+            font-size: 20px;
+        }
+
+        .empty-state p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .footer-copy {
+            text-align: center;
+            font-size: 12px;
+            opacity: .55;
+            margin-top: 40px;
         }
 
         /* =========================================
-           NOTE EDITOR (Hidden by default)
+           EDITOR SECTION (ADD / EDIT FORM)
            ========================================= */
         #editor-view {
             display: none;
-            padding: 20px;
-            padding-bottom: 80px;
+            padding: 18px;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        .title-input {
+        .title-input, .body-input {
             width: 100%;
-            padding: 15px;
-            font-size: 20px;
-            font-weight: bold;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            margin-bottom: 15px;
-            background-color: var(--card-bg);
-            color: var(--text-color);
-            box-sizing: border-box;
-        }
-
-        .body-input {
-            width: 100%;
-            height: 50vh;
             padding: 15px;
             font-size: 16px;
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            box-sizing: border-box;
-            resize: none;
-            margin-bottom: 15px;
+            border-radius: 10px;
+            margin-bottom: 14px;
             background-color: var(--card-bg);
             color: var(--text-color);
+            outline: none;
+        }
+
+        .title-input {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .body-input {
+            height: 52vh;
+            resize: none;
+            line-height: 1.6;
         }
 
         .editor-actions {
@@ -256,56 +487,81 @@
 
         .btn {
             flex: 1;
-            padding: 15px;
-            font-size: 16px;
+            padding: 14px;
+            font-size: 15px;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 700;
             color: #fff;
         }
 
         .btn-save { background-color: var(--primary-color); }
-        .btn-delete { background-color: #d32f2f; }
-        .btn-cancel { background-color: #757575; }
+        .btn-delete { background-color: #C0392B; }
+        .btn-cancel { background-color: #6C7A89; }
 
         /* =========================================
-           MODALS (Popups for Pages)
+           FLOATING ACTION BUTTON (+) BELOW ON RIGHT
+           ========================================= */
+        .fab {
+            position: fixed;
+            bottom: 25px;
+            right: 22px;
+            background-color: var(--fab-color);
+            color: #fff;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,.35);
+            border: none;
+            cursor: pointer;
+            z-index: 40;
+            transition: transform .2s, background-color .3s;
+        }
+
+        .fab:active {
+            transform: scale(.92);
+        }
+
+        /* =========================================
+           MODALS (COMPLIANT & SECURE PAGES)
            ========================================= */
         .modal {
             display: none;
             position: fixed;
             z-index: 200;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.6);
+            inset: 0;
+            background-color: rgba(0,0,0,.65);
             backdrop-filter: blur(3px);
             overflow-y: auto;
+            padding: 20px 15px;
         }
 
         .modal-content {
             background-color: var(--card-bg);
             color: var(--text-color);
-            margin: 10% auto;
-            padding: 25px;
-            width: 85%;
-            max-width: 600px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            margin: 5% auto;
+            padding: 24px;
+            width: 100%;
+            max-width: 620px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.4);
             position: relative;
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         .close-modal {
             position: absolute;
-            top: 15px;
-            right: 20px;
-            color: #aaa;
+            top: 14px;
+            right: 18px;
             font-size: 28px;
-            font-weight: bold;
+            font-weight: 700;
             cursor: pointer;
+            opacity: .7;
         }
 
         .modal-content h2 {
@@ -313,265 +569,297 @@
             color: var(--primary-color);
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .modal-content h3 {
+            margin: 18px 0 6px;
+            font-size: 16px;
+            color: var(--primary-color);
         }
 
         .modal-content p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        /* =========================================
-           ADS SYSTEM & FOOTER
-           ========================================= */
-        .ad-banner {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            height: 50px;
-            background-color: #222;
-            color: #fff;
-            text-align: center;
-            line-height: 50px;
+            margin: 0 0 12px;
             font-size: 14px;
-            z-index: 50;
-            box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
-        }
-
-        .footer-copyright {
-            text-align: center;
-            font-size: 12px;
-            color: #888;
-            margin-top: 30px;
-            margin-bottom: 10px;
-        }
-
-        /* Settings Toggle */
-        .theme-switch-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 20px;
-            padding: 15px;
-            background: rgba(0,0,0,0.05);
-            border-radius: 8px;
+            text-align: justify;
         }
     </style>
 </head>
 <body>
 
-    <!-- =========================================
-         SIDE NAVIGATION MENU
-         ========================================= -->
-    <div id="mySidenav" class="side-menu">
-        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
-        
-        <div class="menu-header">
-            <h3>All Notepad Pro</h3>
-            <small>By Naveed Ali</small>
-        </div>
+    <!-- OVERLAYS AND INTERACTIVE PANELS -->
+    <div id="sideOverlay" class="side-overlay" onclick="closeNav()"></div>
 
-        <a onclick="showView('list')">🏠 Home (Notes)</a>
-        <a onclick="showModal('settingsModal')">⚙️ Settings</a>
-        <a onclick="showModal('aboutModal')">👨‍💻 About Me</a>
-        <a onclick="showModal('privacyModal')">🔒 Privacy Policy</a>
-        <a onclick="showModal('termsModal')">📄 Terms & Conditions</a>
-        
-        <!-- AdMob Rewarded Links -->
-        <a style="color: #FFD700; margin-top: 20px;" onclick="simulateAd('Rewarded 1')">🎁 Watch Ad (Unlock Theme)</a>
-        <a style="color: #FFD700;" onclick="simulateAd('Rewarded 2')">🎁 Watch Ad (Support Us)</a>
+    <!-- NAVIGATION DRAWER SIDEBAR -->
+    <div id="mySidenav" class="side-menu">
+        <div class="menu-header">
+            <button class="close-btn" onclick="closeNav()">&times;</button>
+            <h2>All Notepad Pro</h2>
+            <p>Developer: Naveed Ali</p>
+        </div>
+        <div class="menu-links">
+            <a onclick="showView('list')"><span>🏠</span> Home (Notes)</a>
+            <a onclick="openThemes()"><span>🎨</span> Arts & Themes</a>
+            <a onclick="showModal('aboutModal')"><span>👨‍💻</span> About Me</a>
+            <a onclick="showModal('privacyModal')"><span>🔒</span> Privacy Policy</a>
+            <a onclick="showModal('termsModal')"><span>📄</span> Terms & Conditions</a>
+        </div>
     </div>
 
-    <!-- =========================================
-         APP HEADER
-         ========================================= -->
-    <header id="main-header">
+    <!-- GLOBAL APP HEADER -->
+    <header>
         <div class="header-left">
             <button class="menu-btn" onclick="openNav()">&#9776;</button>
-            <h2 id="header-title">All Notepad</h2>
+            <h1 id="header-title">All Notepad Pro</h1>
         </div>
-        <button class="add-btn-header" onclick="openEditor()" id="header-add-btn">+</button>
     </header>
 
-    <!-- =========================================
-         MAIN VIEW: NOTES LIST
-         ========================================= -->
+    <!-- LIST OF NOTES VIEW -->
     <div id="app">
-        <input type="text" class="search-bar" id="searchBar" placeholder="Search notes..." onkeyup="filterNotes()">
-        
-        <div id="notesContainer" class="notes-grid">
-            <!-- Notes will be generated here by JavaScript -->
-        </div>
-        
-        <div id="emptyState" class="empty-state" style="display: none;">
-            <h2>No Notes Found</h2>
-            <p>Tap the + button above to create your first secure note.</p>
+        <div class="search-wrap">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-bar" id="searchBar" placeholder="Search notes..." onkeyup="filterNotes()">
         </div>
 
-        <div class="footer-copyright">
+        <!-- 10 THEME PANEL CARD (INVISIBLE BY DEFAULT) -->
+        <div id="themeCard" class="theme-card">
+            <h3>🎨 Select Theme</h3>
+            <select id="themeSelect" class="theme-select" onchange="previewTheme()">
+                <option value="light">Light Mode (Default)</option>
+                <option value="dark">Dark Night Theme</option>
+                <option value="gold">Royal Gold Theme</option>
+                <option value="ocean">Ocean Blue Theme</option>
+                <option value="forest">Forest Green Theme</option>
+                <option value="crimson">Sunset Crimson Theme</option>
+                <option value="purple">Classic Orchid Purple Theme</option>
+                <option value="cyberpunk">Cyberpunk Neon Theme</option>
+                <option value="lavender">Lavender Soft Theme</option>
+                <option value="chocolate">Chocolate Brown Theme</option>
+            </select>
+            <button class="theme-save-btn" onclick="saveThemeAndShowAd()">💾 Save Theme</button>
+        </div>
+
+        <div id="notesContainer" class="notes-grid"></div>
+
+        <div id="emptyState" class="empty-state">
+            <h2>No Notes Found</h2>
+            <p>Tap the + button below to create your first secure note.</p>
+        </div>
+
+        <div class="footer-copy">
             &copy; 2026 Naveed Ali. All Rights Reserved.
         </div>
+
+        <!-- FLOATING ADD BUTTON -->
+        <button class="fab" id="fabBtn" onclick="openEditor()">+</button>
     </div>
 
-    <!-- =========================================
-         EDITOR VIEW: CREATE / EDIT NOTE
-         ========================================= -->
+    <!-- NOTE WRITING EDITOR (FORM) -->
     <div id="editor-view">
         <input type="hidden" id="editIndex" value="-1">
         <input type="text" id="noteTitle" class="title-input" placeholder="Note Title...">
-        <textarea id="noteBody" class="body-input" placeholder="Type your secure notes here..."></textarea>
-        
+        <textarea id="noteBody" class="body-input" placeholder="Write your secure note here..."></textarea>
         <div class="editor-actions">
-            <button class="btn btn-cancel" onclick="showView('list')">Cancel</button>
-            <button class="btn btn-delete" id="deleteBtn" onclick="deleteCurrentNote()" style="display:none;">Delete</button>
+            <button class="btn btn-cancel" onclick="showView('list')">Cancel</button>             <button class="btn btn-delete" id="deleteBtn" onclick="deleteCurrentNote()" style="display:none">Delete</button>
             <button class="btn btn-save" onclick="saveNote()">Save Note</button>
         </div>
     </div>
 
-    <!-- =========================================
-         BOTTOM BANNER AD
-         ========================================= -->
-    <div class="ad-banner">
-        [AdMob Banner Ad Unit - ca-app-pub-xxx/yyy]
-    </div>
+    <!-- MODALS (PAGES: ABOUT, PRIVACY, TERMS) -->
 
-    <!-- =========================================
-         MODALS (LEGAL & ABOUT PAGES)
-         ========================================= -->
-         
-    <!-- 1. About Me Modal -->
+    <!-- ABOUT ME MODAL -->
     <div id="aboutModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('aboutModal')">&times;</span>
             <h2>About Developer</h2>
-            <p><strong>Name:</strong> Naveed Ali Chandio</p>
-            <p><strong>Application:</strong> All Notepad Pro</p>
-            <p><strong>Version:</strong> 1.0.0 (Native Web Build)</p>
-            <div style="background: var(--primary-color); color: #fff; padding: 15px; border-radius: 8px; margin-top: 20px; text-align: center;">
-                <h3>"All my ideas are unique."</h3>
+            <p><strong>Developer Name:</strong> Naveed Ali Chandio</p>
+            <p><strong>Application Name:</strong> All Notepad Pro</p>
+            <p><strong>Package ID:</strong> com.naveedali.allnotpadpro</p>
+            <p><strong>Version:</strong> 2.0.0 (Official Production Release)</p>
+            <div style="background: var(--primary-color); color: #fff; padding: 16px; border-radius: 10px; margin: 18px 0; text-align: center; font-weight: 600; transition: background-color .35s;">
+                "All my ideas are unique — Crafted for security, speed, and simplicity."
             </div>
-            <p style="margin-top: 20px;">Thank you for using this application. It has been crafted carefully to provide the best offline note-taking experience with secure local storage.</p>
+            <p>Welcome to <strong>All Notepad Pro</strong>. Developed by Naveed Ali Chandio, this application provides a fast, customizable, and 100% offline note-taking experience. Your personal notes, ideas, and checklists remain strictly on your device with rich custom themes and an intuitive interface.</p>
         </div>
     </div>
 
-    <!-- 2. Privacy Policy Modal -->
+    <!-- PRIVACY POLICY MODAL -->
     <div id="privacyModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('privacyModal')">&times;</span>
             <h2>Privacy Policy</h2>
-            <p><strong>Last Updated: October 2026</strong></p>
-            <p>Welcome to the Privacy Policy of All Notepad Pro, developed by Naveed Ali Chandio.</p>
-            <h3>1. Data Storage</h3>
-            <p>All notes, texts, and data you input into this application are stored 100% locally on your device using native browser storage (LocalStorage). We do not have servers, and we do not upload, read, or share your personal notes.</p>
-            <h3>2. Advertising (AdMob)</h3>
-            <p>To keep this application free, we use Google AdMob to display advertisements. AdMob may collect anonymous device identifiers and network information to provide relevant ads. No personal notepad data is ever shared with advertising networks.</p>
-            <h3>3. Permissions</h3>
-            <p>This app requires internet permission solely for the purpose of loading Google AdMob advertisements. It does not require camera, location, or contact permissions.</p>
-            <p>If you have any questions, please contact the developer.</p>
+            <p><strong>Effective & Last Updated: October 2026</strong></p>
+            <p>This Privacy Policy describes how <strong>All Notepad Pro</strong> (developed by <strong>Naveed Ali Chandio</strong>) handles user information, data security, and advertising compliance.</p>
+            <h3>1. 100% Local Data Storage</h3>
+            <p>All notes, titles, texts, and theme preferences created inside All Notepad Pro are stored locally on your device using secure internal storage (LocalStorage). We do not operate external cloud databases, and we never transmit, read, collect, or share your private notes with any third party.</p>
+            <h3>2. Advertisements & Google AdMob</h3>
+            <p>To keep All Notepad Pro free for all users, we integrate Google AdMob for displaying Banner and Interstitial advertisements. Google AdMob may automatically collect non-personal device identifiers (such as Android Advertising ID), coarse location, and diagnostic usage data to serve personalized or non-personalized ads in accordance with Google Play policies.</p>
+            <h3>3. App Permissions</h3>
+            <p>The application only requires standard Internet and Network State permissions to load advertisements. It does not request access to your camera, microphone, contacts, or private files.</p>
+            <h3>4. Children's Privacy & Security</h3>
+            <p>We do not knowingly collect any personal information from children under 13. Users have full control to edit or permanently delete their notes at any time directly within the app.</p>
+            <h3>5. Developer Contact</h3>
+            <p>If you have any questions or concerns regarding this Privacy Policy, please reach out to the developer, Naveed Ali Chandio, through the official app support listing.</p>
         </div>
     </div>
 
-    <!-- 3. Terms & Conditions Modal -->
+    <!-- TERMS AND CONDITIONS MODAL -->
     <div id="termsModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('termsModal')">&times;</span>
             <h2>Terms & Conditions</h2>
             <p><strong>Effective Date: October 2026</strong></p>
-            <p>By downloading, accessing, or using All Notepad Pro, you agree to be bound by these Terms and Conditions.</p>
-            <h3>1. Intellectual Property</h3>
-            <p>All source code, UI designs, graphics, and structure of this application are the exclusive intellectual property of Naveed Ali Chandio. Reverse engineering, copying, or distributing the source code without permission is strictly prohibited.</p>
-            <h3>2. User Responsibilities</h3>
-            <p>You are solely responsible for the content you create and store within the app. Since data is stored locally, the developer is not responsible for any data loss if you uninstall the app or clear your device storage.</p>
-            <h3>3. Limitation of Liability</h3>
-            <p>The app is provided "as is". The developer holds no liability for any software malfunction or data corruption.</p>
+            <p>By downloading, installing, or using <strong>All Notepad Pro</strong>, you agree to abide by the following Terms and Conditions set forth by developer <strong>Naveed Ali Chandio</strong>.</p>
+            <h3>1. Intellectual Property Rights</h3>
+            <p>All source code, user interface designs, custom themes, branding, and text associated with All Notepad Pro are the sole intellectual property of Naveed Ali Chandio. Unauthorized copying, modification, reverse engineering, or redistribution of this application is strictly prohibited.</p>
+            <h3>2. User Data Responsibility</h3>
+            <p>Because all notes are stored offline on your device for maximum privacy, you are solely responsible for backing up important information. Uninstalling the application or clearing app storage will permanently erase saved notes.</p>
+            <h3>3. Advertisement Policy</h3>
+            <p>You acknowledge that the application displays advertisements via Google AdMob (such as when saving themes or notes) to support ongoing development and maintenance.</p>
+            <h3>4. Disclaimer of Warranties</h3>
+            <p>All Notepad Pro is provided on an "AS IS" basis without warranties of any kind. The developer shall not be held liable for any direct or indirect data loss resulting from device failure or misuse.</p>
         </div>
     </div>
 
-    <!-- 4. Settings Modal -->
-    <div id="settingsModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('settingsModal')">&times;</span>
-            <h2>App Settings</h2>
-            
-            <div class="theme-switch-wrapper">
-                <strong>Dark Mode</strong>
-                <label style="cursor: pointer; background: var(--primary-color); color: #fff; padding: 5px 15px; border-radius: 20px;" onclick="toggleTheme()">Toggle</label>
-            </div>
-            
-            <p style="font-size: 12px; color: #888; margin-top: 20px;">More settings coming in future updates.</p>
-        </div>
-    </div>
-
-    <!-- =========================================
-         JAVASCRIPT LOGIC
-         ========================================= -->
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-        // --- 1. Global Variables & State ---
+        // ORIGINAL ADMOB UNIQUE CONFIGURATION
+        const ADMOB_CONFIG = {
+            APP_ID: "ca-app-pub-8867801207601400~6591895201",
+            BANNER_ID: "ca-app-pub-8867801207601400/3965731866",
+            INTERSTITIAL_ID: "ca-app-pub-8867801207601400/7988737353"
+        };
+
         let notesData = [];
         const appView = document.getElementById('app');
         const editorView = document.getElementById('editor-view');
         const headerTitle = document.getElementById('header-title');
-        const headerAddBtn = document.getElementById('header-add-btn');
+        const fabBtn = document.getElementById('fabBtn');
 
-        // --- 2. Navigation & UI Toggles ---
+        function initAdMob() {
+            try {
+                if (window.Android && typeof window.Android.loadBanner === 'function') {
+                    window.Android.loadBanner(ADMOB_CONFIG.BANNER_ID);
+                } else if (window.admob && window.admob.banner) {
+                    window.admob.banner.config({
+                        id: ADMOB_CONFIG.BANNER_ID,
+                        isTesting: false,
+                        autoShow: true
+                    });
+                    window.admob.banner.prepare();
+                    if (window.admob.interstitial) {
+                        window.admob.interstitial.config({
+                            id: ADMOB_CONFIG.INTERSTITIAL_ID,
+                            isTesting: false
+                        });
+                        window.admob.interstitial.prepare();
+                    }
+                } else if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.AdMob) {
+                    window.Capacitor.Plugins.AdMob.showBanner({
+                        adId: ADMOB_CONFIG.BANNER_ID,
+                        position: 'BOTTOM_CENTER'
+                    });
+                }
+            } catch (error) {
+                console.log("No native App Environment found. Preview mode active.");
+            }
+        }
+
+        function triggerInterstitialAd() {
+            try {
+                if (window.Android && typeof window.Android.showInterstitial === 'function') {
+                    window.Android.showInterstitial(ADMOB_CONFIG.INTERSTITIAL_ID);
+                } else if (window.Android && typeof window.Android.showAd === 'function') {
+                    window.Android.showAd();
+                } else if (window.admob && window.admob.interstitial) {
+                    window.admob.interstitial.show();
+                    window.admob.interstitial.prepare();
+                } else if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.AdMob) {
+                    window.Capacitor.Plugins.AdMob.prepareInterstitial({
+                        adId: ADMOB_CONFIG.INTERSTITIAL_ID
+                    }).then(() => {
+                        window.Capacitor.Plugins.AdMob.showInterstitial();
+                    });
+                } else if (window.gonative && window.gonative.admob) {
+                    window.gonative.admob.showInterstitialIfReady();
+                }
+            } catch (error) {
+                console.log("Ads loading fallback...");
+            }
+        }
+
         function openNav() {
             document.getElementById("mySidenav").style.width = "280px";
+            document.getElementById("sideOverlay").style.display = "block";
         }
 
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("sideOverlay").style.display = "none";
         }
 
-        function showModal(modalId) {
+        function showModal(id) {
             closeNav();
-            document.getElementById(modalId).style.display = "block";
+            document.getElementById(id).style.display = "block";
         }
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = "none";
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
         }
 
-        function showView(viewType) {
+        function showView(view) {
             closeNav();
-            if(viewType === 'list') {
+            if (view === 'list') {
                 appView.style.display = "block";
                 editorView.style.display = "none";
-                headerTitle.innerText = "All Notepad";
-                headerAddBtn.style.display = "flex";
+                headerTitle.innerText = "All Notepad Pro";
+                fabBtn.style.display = "flex";
                 renderNotes();
             } else {
                 appView.style.display = "none";
                 editorView.style.display = "block";
-                headerAddBtn.style.display = "none";
+                fabBtn.style.display = "none";
             }
         }
 
-        // --- 3. Theme Management ---
-        function toggleTheme() {
-            const body = document.body;
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-                localStorage.setItem('notepad_theme', 'light');
+        function openThemes() {
+            closeNav();
+            showView('list');
+            const card = document.getElementById('themeCard');
+            card.style.display = card.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function applyThemeAttr(theme) {
+            if (!theme || theme === 'light') {
+                document.body.removeAttribute('data-theme');
             } else {
-                body.setAttribute('data-theme', 'dark');
-                localStorage.setItem('notepad_theme', 'dark');
+                document.body.setAttribute('data-theme', theme);
             }
+        }
+
+        function previewTheme() {
+            const val = document.getElementById('themeSelect').value;
+            applyThemeAttr(val);
+        }
+
+        function saveThemeAndShowAd() {
+            const val = document.getElementById('themeSelect').value;
+            localStorage.setItem('notepad_theme', val);
+            applyThemeAttr(val);
+            document.getElementById('themeCard').style.display = 'none';
+            triggerInterstitialAd();
         }
 
         function loadTheme() {
-            const savedTheme = localStorage.getItem('notepad_theme');
-            if (savedTheme === 'dark') {
-                document.body.setAttribute('data-theme', 'dark');
-            }
+            const saved = localStorage.getItem('notepad_theme') || 'light';
+            applyThemeAttr(saved);
+            const sel = document.getElementById('themeSelect');
+            if (sel) sel.value = saved;
         }
 
-        // --- 4. Core Notepad Logic (CRUD) ---
         function loadNotes() {
             const stored = localStorage.getItem("all_notepad_pro_db");
-            if (stored) {
-                notesData = JSON.parse(stored);
-            } else {
-                notesData = [];
-            }
+            notesData = stored ? JSON.parse(stored) : [];
             renderNotes();
         }
 
@@ -579,45 +867,39 @@
             localStorage.setItem("all_notepad_pro_db", JSON.stringify(notesData));
         }
 
-                function renderNotes(filterText = "") {
+        function renderNotes(filter = "") {
             const container = document.getElementById('notesContainer');
             const emptyState = document.getElementById('emptyState');
             container.innerHTML = "";
+            let list = notesData;
 
-            let filteredNotes = notesData;
-            if (filterText !== "") {
-                const lowerFilter = filterText.toLowerCase();
-                filteredNotes = notesData.filter(note => 
-                    note.title.toLowerCase().includes(lowerFilter) || 
-                    note.body.toLowerCase().includes(lowerFilter)
+            if (filter !== "") {
+                const q = filter.toLowerCase();
+                list = notesData.filter(n => 
+                    (n.title && n.title.toLowerCase().includes(q)) || 
+                    (n.body && n.body.toLowerCase().includes(q))
                 );
             }
 
-            if (filteredNotes.length === 0) {
+            if (list.length === 0) {
                 emptyState.style.display = "block";
             } else {
                 emptyState.style.display = "none";
-                filteredNotes.forEach((note, index) => {
-                    // Actual index in main array for editing
-                    const realIndex = notesData.findIndex(n => n.id === note.id);
-                    
+                list.forEach(note => {
+                    const realIdx = notesData.findIndex(n => n.id === note.id);
                     const card = document.createElement('div');
                     card.className = "note-card";
-                    card.onclick = () => editNote(realIndex);
-                    
-                    card.innerHTML = `
-                        <h3>${note.title ? note.title : 'Untitled Note'}</h3>
-                        <p>${note.body}</p>
-                        <span class="note-date">${note.date}</span>
-                    `;
+                    card.onclick = () => editNote(realIdx);
+                    const safeTitle = note.title ? note.title.replace(/</g, "&lt;") : 'Untitled Note';
+                    const safeBody = note.body ? note.body.replace(/</g, "&lt;") : '';
+                    card.innerHTML = `<h3>${safeTitle}</h3><p>${safeBody}</p><span class="note-date">${note.date}</span>`;
                     container.appendChild(card);
                 });
             }
         }
 
         function filterNotes() {
-            const text = document.getElementById('searchBar').value;
-            renderNotes(text);
+            renderNotes(document.getElementById('searchBar').value);
         }
 
         function openEditor() {
@@ -629,110 +911,59 @@
             showView('editor');
         }
 
-        function editNote(index) {
-            const note = notesData[index];
-            document.getElementById('editIndex').value = index;
-            document.getElementById('noteTitle').value = note.title;
-            document.getElementById('noteBody').value = note.body;
+        function editNote(idx) {
+            const n = notesData[idx];
+            if (!n) return;
+            document.getElementById('editIndex').value = idx;
+            document.getElementById('noteTitle').value = n.title;
+            document.getElementById('noteBody').value = n.body;
             document.getElementById('deleteBtn').style.display = "block";
             headerTitle.innerText = "Edit Note";
             showView('editor');
         }
 
         function saveNote() {
-            const title = document.getElementById('noteTitle').value.trim();
-            const body = document.getElementById('noteBody').value.trim();
-            const index = parseInt(document.getElementById('editIndex').value);
+            const title = document.getElementById('noteTitle').value.trim(),
+                body = document.getElementById('noteBody').value.trim(),
+                idx = parseInt(document.getElementById('editIndex').value);
 
-            if (title === "" && body === "") {
-                alert("Cannot save an empty note!");
-                return;
-            }
+            if (title === "" && body === "") return;
 
-            const currentDate = new Date().toLocaleDateString('en-US', { 
-                year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' 
+            const date = new Date().toLocaleDateString('en-US', {
+                year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
             });
 
-            if (index === -1) {
-                // Create New
-                notesData.unshift({
-                    id: Date.now().toString(),
-                    title: title,
-                    body: body,
-                    date: currentDate
-                });
+            if (idx === -1) {
+                notesData.unshift({ id: Date.now().toString(), title, body, date });
             } else {
-                // Update Existing
-                notesData[index].title = title;
-                notesData[index].body = body;
-                notesData[index].date = currentDate;
-                
-                // Move updated note to top
-                const updatedNote = notesData.splice(index, 1)[0];
-                notesData.unshift(updatedNote);
+                notesData[idx] = { ...notesData[idx], title, body, date };
+                const item = notesData.splice(idx, 1)[0];
+                notesData.unshift(item);
             }
 
             saveNotesToStorage();
-            
-            // Trigger AdMob Interstitial logic
-            simulateAd('Interstitial');
-            
+            triggerInterstitialAd();
             showView('list');
         }
 
         function deleteCurrentNote() {
-            const index = parseInt(document.getElementById('editIndex').value);
-            if (index > -1) {
-                if(confirm("Are you sure you want to delete this note?")) {
-                    notesData.splice(index, 1);
-                    saveNotesToStorage();
-                    showView('list');
-                }
+            const idx = parseInt(document.getElementById('editIndex').value);
+            if (idx > -1 && confirm("Delete this note permanently?")) {
+                notesData.splice(idx, 1);
+                saveNotesToStorage();
+                showView('list');
             }
         }
 
-        // --- 5. AdMob Simulation System ---
-        function simulateAd(adType) {
-            closeNav();
-            
-            // Create a fake loading screen for ads
-            const adScreen = document.createElement('div');
-            adScreen.style.position = 'fixed';
-            adScreen.style.top = '0';
-            adScreen.style.left = '0';
-            adScreen.style.width = '100%';
-            adScreen.style.height = '100%';
-            adScreen.style.backgroundColor = 'rgba(0,0,0,0.9)';
-            adScreen.style.color = '#fff';
-            adScreen.style.display = 'flex';
-            adScreen.style.flexDirection = 'column';
-            adScreen.style.alignItems = 'center';
-            adScreen.style.justifyContent = 'center';
-            adScreen.style.zIndex = '9999';
-            adScreen.innerHTML = `
-                <h2 style="color:var(--primary-color)">Loading ${adType} Ad...</h2>
-                <p>Please wait while AdMob connects.</p>
-                <div style="margin-top:20px; padding:10px; border:1px solid #fff; cursor:pointer;" onclick="this.parentElement.remove()">
-                    [ X ] Close Ad
-                </div>
-            `;
-            
-            document.body.appendChild(adScreen);
-            console.log(`AdMob ${adType} unit triggered successfully.`);
-        }
-
-        // --- 6. Initialization ---
         window.onload = () => {
             loadTheme();
             loadNotes();
+            initAdMob();
         };
 
-        // Close modals if clicked outside content
-        window.onclick = function(event) {
-            if (event.target.className === 'modal') {
-                event.target.style.display = "none";
-            }
-        }
+        window.onclick = e => {
+            if (e.target.classList.contains('modal')) e.target.style.display = "none";
+        };
     </script>
 </body>
 </html>
