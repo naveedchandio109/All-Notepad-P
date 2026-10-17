@@ -6,118 +6,112 @@
     <title>All Notepad Pro</title>
     
     <style>
-        :root {
-            --primary-color: #7B5B3A; --bg-color: #F5F0D6; --text-color: #2C2520;
-            --card-bg: #FFFDF5; --sidebar-bg: #241C15; --sidebar-header: #63472B;
-            --sidebar-text: #F5F0D6; --border-color: #D8CEB2; --fab-color: #C0392B;
-        }
-        [data-theme="dark"] {
-            --primary-color: #1F1B18; --bg-color: #121212; --text-color: #E8E6E3;
-            --card-bg: #1E1E1E; --sidebar-bg: #0D0D0D; --sidebar-header: #1F1B18;
-            --sidebar-text: #FFFFFF; --border-color: #333333; --fab-color: #E74C3C;
-        }
-        [data-theme="ocean"] {
-            --primary-color: #1B4F72; --bg-color: #EBF5FB; --text-color: #154360;
-            --card-bg: #FFFFFF; --sidebar-bg: #0E2A3D; --sidebar-header: #1B4F72;
-            --sidebar-text: #EBF5FB; --border-color: #AED6F1; --fab-color: #2980B9;
-        }
-        [data-theme="purple"] {
-            --primary-color: #512E5F; --bg-color: #F5EEF8; --text-color: #2A1435;
-            --card-bg: #FFFFFF; --sidebar-bg: #1A0F21; --sidebar-header: #512E5F;
-            --sidebar-text: #F5EEF8; --border-color: #E8DAEF; --fab-color: #8E44AD;
-        }
+        /* 10 THEMES CONFIGURATION */
+        :root { --primary-color: #7B5B3A; --bg-color: #F5F0D6; --text-color: #2C2520; --card-bg: #FFFDF5; --sidebar-bg: #241C15; --sidebar-header: #63472B; --sidebar-text: #F5F0D6; --border-color: #D8CEB2; --fab-color: #C0392B; }
+        [data-theme="dark"] { --primary-color: #1F1B18; --bg-color: #121212; --text-color: #E8E6E3; --card-bg: #1E1E1E; --sidebar-bg: #0D0D0D; --sidebar-header: #1F1B18; --sidebar-text: #FFFFFF; --border-color: #333333; --fab-color: #E74C3C; }
+        [data-theme="gold"] { --primary-color: #8A6D1B; --bg-color: #FDF8E4; --text-color: #3A2E0B; --card-bg: #FFFFFF; --sidebar-bg: #292006; --sidebar-header: #8A6D1B; --sidebar-text: #FFF8DC; --border-color: #E2CE8B; --fab-color: #B8860B; }
+        [data-theme="ocean"] { --primary-color: #1B4F72; --bg-color: #EBF5FB; --text-color: #154360; --card-bg: #FFFFFF; --sidebar-bg: #0E2A3D; --sidebar-header: #1B4F72; --sidebar-text: #EBF5FB; --border-color: #AED6F1; --fab-color: #2980B9; }
+        [data-theme="forest"] { --primary-color: #1E5631; --bg-color: #E9F5EC; --text-color: #143820; --card-bg: #FFFFFF; --sidebar-bg: #0F2B18; --sidebar-header: #1E5631; --sidebar-text: #E9F5EC; --border-color: #A9DFBF; --fab-color: #27AE60; }
+        [data-theme="crimson"] { --primary-color: #7B241C; --bg-color: #FDEDEC; --text-color: #4A120E; --card-bg: #FFFFFF; --sidebar-bg: #2C0F0B; --sidebar-header: #7B241C; --sidebar-text: #FDEDEC; --border-color: #FADBD8; --fab-color: #E74C3C; }
+        [data-theme="purple"] { --primary-color: #512E5F; --bg-color: #F5EEF8; --text-color: #2A1435; --card-bg: #FFFFFF; --sidebar-bg: #1A0F21; --sidebar-header: #512E5F; --sidebar-text: #F5EEF8; --border-color: #E8DAEF; --fab-color: #8E44AD; }
+        [data-theme="cyberpunk"] { --primary-color: #8800ff; --bg-color: #0c001a; --text-color: #00ffcc; --card-bg: #14002e; --sidebar-bg: #030007; --sidebar-header: #390066; --sidebar-text: #00ffcc; --border-color: #390066; --fab-color: #ff007f; }
+        [data-theme="lavender"] { --primary-color: #4A47A3; --bg-color: #F0F0FA; --text-color: #1A1A54; --card-bg: #FFFFFF; --sidebar-bg: #151540; --sidebar-header: #4A47A3; --sidebar-text: #F0F0FA; --border-color: #D3D3F7; --fab-color: #706FD3; }
+        [data-theme="chocolate"] { --primary-color: #3E2723; --bg-color: #EFEBE9; --text-color: #1B0F0D; --card-bg: #FFFFFF; --sidebar-bg: #1A0D0B; --sidebar-header: #3E2723; --sidebar-text: #EFEBE9; --border-color: #D7CCC8; --fab-color: #5D4037; }
 
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color);
-            overflow-x: hidden; transition: background-color .3s, color .3s;
-            padding-bottom: 60px; /* Space for Banner Ad */
-        }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; transition: background-color .3s, color .3s; padding-bottom: 70px; }
 
-        header {
-            background-color: var(--primary-color); color: #fff;
-            padding: calc(env(safe-area-inset-top, 0px) + 16px) 20px 16px;
-            display: flex; align-items: center; justify-content: space-between;
-            position: sticky; top: 0; z-index: 20;
-        }
+        /* SPLASH SCREEN (NEW) */
+        #splashScreen { position: fixed; inset: 0; background-color: #2C3E50; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff; transition: opacity 0.5s ease, visibility 0.5s; }
+        .splash-logo { font-size: 38px; font-weight: bold; margin-bottom: 10px; text-align: center; animation: pulse 1.5s infinite; }
+        .splash-dev { font-size: 16px; opacity: 0.8; letter-spacing: 1px; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); color: #F1C40F; } 100% { transform: scale(1); } }
+
+        /* HEADER */
+        header { background-color: var(--primary-color); color: #fff; padding: calc(env(safe-area-inset-top, 0px) + 16px) 20px 16px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 20; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
         .header-left { display: flex; align-items: center; gap: 16px; }
         .menu-btn { font-size: 26px; cursor: pointer; background: transparent; border: none; color: #fff; }
         header h1 { margin: 0; font-size: 20px; font-weight: 600; }
 
+        /* SIDEBAR */
         .side-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 90; }
-        .side-menu {
-            height: 100%; width: 0; position: fixed; z-index: 100; top: 0; left: 0;
-            background-color: var(--sidebar-bg); overflow-x: hidden; transition: width .3s;
-            display: flex; flex-direction: column;
-        }
+        .side-menu { height: 100%; width: 0; position: fixed; z-index: 100; top: 0; left: 0; background-color: var(--sidebar-bg); overflow-x: hidden; transition: width .3s; display: flex; flex-direction: column; box-shadow: 4px 0 15px rgba(0,0,0,.4); }
         .menu-header { background-color: var(--sidebar-header); padding: 40px 20px 20px; color: #fff; position: relative; }
         .menu-header h2 { margin: 0 0 6px; font-size: 21px; }
+        .menu-header p { margin: 0; font-size: 13px; opacity: .9; }
         .close-btn { position: absolute; top: 15px; right: 15px; font-size: 28px; color: #fff; background: none; border: none; cursor: pointer; }
         .menu-links { padding: 10px 0; flex: 1; }
-        .side-menu a {
-            padding: 15px 22px; text-decoration: none; font-size: 16px; color: var(--sidebar-text);
-            display: flex; align-items: center; gap: 14px; border-bottom: 1px solid rgba(255,255,255,.06); cursor: pointer;
-        }
+        .side-menu a { padding: 15px 22px; text-decoration: none; font-size: 16px; color: var(--sidebar-text); display: flex; align-items: center; gap: 14px; border-bottom: 1px solid rgba(255,255,255,.06); cursor: pointer; }
 
-        #app, #editor-view { padding: 15px; max-width: 100%; margin: 0 auto; box-sizing: border-box; overflow: hidden; }
-        .search-wrap { margin-bottom: 15px; }
-        .search-bar {
-            width: 100%; padding: 12px 15px 12px 40px; font-size: 15px;
-            border: 1px solid var(--border-color); border-radius: 8px;
-            background-color: var(--card-bg); color: var(--text-color); box-sizing: border-box;
-        }
-
-        /* FIXED DESIGN ISSUE (TEXT CUTTING & OVERFLOW) */
-        .notes-grid { display: flex; flex-direction: column; gap: 12px; width: 100%; }
-        .note-card {
-            background-color: var(--card-bg); border: 1px solid var(--border-color);
-            padding: 15px; border-radius: 10px; cursor: pointer;
-            width: 100%; box-sizing: border-box; overflow: hidden; position: relative;
-        }
-        .note-card h3 { margin: 0 0 8px; font-size: 17px; word-break: break-word; }
-        .note-card p {
-            margin: 0; opacity: .75; font-size: 14px;
-            word-break: break-word; overflow-wrap: anywhere; /* Fixes URLs */
-            white-space: pre-wrap; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
-        }
-
-        .fab {
-            position: fixed; bottom: 70px; right: 20px; background-color: var(--fab-color);
-            color: #fff; width: 55px; height: 55px; border-radius: 50%;
-            display: flex; justify-content: center; align-items: center; font-size: 28px;
-            border: none; cursor: pointer; z-index: 40; box-shadow: 0 4px 10px rgba(0,0,0,.3);
-        }
-
-        /* FIXED BANNER AD SPACE FOR APP BUILDER */
-        .admob-banner-container {
-            position: fixed; bottom: 0; left: 0; width: 100%; height: 50px;
-            background-color: transparent; z-index: 50; display: flex; justify-content: center; align-items: center;
-        }
-
-        .theme-card { display: none; background: var(--card-bg); padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid var(--border-color); }
-        .theme-select { width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; }
-        .theme-save-btn { width: 100%; padding: 12px; background: var(--primary-color); color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+        /* MAIN AREA */
+        #app, #editor-view { padding: 18px; max-width: 700px; margin: 0 auto; box-sizing: border-box; overflow: hidden; }
+        .search-wrap { margin-bottom: 18px; position: relative; }
+        .search-bar { width: 100%; padding: 13px 15px 13px 40px; font-size: 15px; border: 1px solid var(--border-color); border-radius: 8px; background-color: var(--card-bg); color: var(--text-color); box-sizing: border-box; }
         
-        .title-input, .body-input { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 12px; background: var(--card-bg); color: var(--text-color); box-sizing: border-box; }
-        .body-input { height: 45vh; resize: none; }
+        /* THEME SELECTOR */
+        .theme-card { display: none; background: var(--card-bg); padding: 20px; border-radius: 14px; margin-bottom: 22px; border: 1px solid var(--border-color); box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+        .theme-card h3 { margin: 0 0 14px; font-size: 18px; }
+        .theme-select { width: 100%; padding: 12px; margin-bottom: 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color); font-size: 15px; }
+        .theme-save-btn { width: 100%; padding: 13px; background: var(--primary-color); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px; }
+
+        /* NOTES GRID */
+        .notes-grid { display: flex; flex-direction: column; gap: 14px; width: 100%; }
+        .note-card { background-color: var(--card-bg); border: 1px solid var(--border-color); padding: 16px; border-radius: 12px; cursor: pointer; width: 100%; box-sizing: border-box; overflow: hidden; position: relative; box-shadow: 0 2px 6px rgba(0,0,0,.05); }
+        
+        /* REALISTIC DELETE ICON */
+        .delete-icon { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 6px; background-color: rgba(192, 57, 43, 0.1); color: #C0392B; font-size: 18px; cursor: pointer; transition: background 0.2s; }
+        .delete-icon:active { background-color: rgba(192, 57, 43, 0.3); }
+
+        .note-card h3 { margin: 0 0 8px; font-size: 17px; word-break: break-word; width: 85%; }
+        .note-card p { margin: 0; opacity: .75; font-size: 14px; word-break: break-word; overflow-wrap: anywhere; white-space: pre-wrap; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .note-date { display: block; margin-top: 10px; font-size: 11px; opacity: .55; text-align: right; }
+
+        /* FAB & FOOTER */
+        .fab { position: fixed; bottom: 70px; right: 20px; background-color: var(--fab-color); color: #fff; width: 58px; height: 58px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; border: none; cursor: pointer; z-index: 40; box-shadow: 0 5px 15px rgba(0,0,0,.35); }
+        .footer-copy { text-align: center; font-size: 13px; opacity: 0.6; margin-top: 30px; padding-bottom: 20px; font-weight: 500; }
+        .empty-state { text-align: center; padding: 50px 10px; opacity: 0.7; }
+
+        /* ADMOB BANNER SPACE */
+        .admob-banner-container { position: fixed; bottom: 0; left: 0; width: 100%; height: 50px; background-color: #222; z-index: 50; display: flex; justify-content: center; align-items: center; color: #888; font-size: 12px; }
+
+        /* EDITOR FORM */
+        .title-input, .body-input { width: 100%; padding: 15px; border: 1px solid var(--border-color); border-radius: 10px; margin-bottom: 14px; background: var(--card-bg); color: var(--text-color); box-sizing: border-box; font-size: 16px; }
+        .title-input { font-weight: bold; font-size: 18px; }
+        .body-input { height: 50vh; resize: none; line-height: 1.6; }
         .editor-actions { display: flex; gap: 10px; }
-        .btn { flex: 1; padding: 12px; border: none; border-radius: 8px; color: #fff; font-weight: bold; cursor: pointer; }
+        .btn { flex: 1; padding: 14px; border: none; border-radius: 10px; color: #fff; font-weight: bold; font-size: 15px; cursor: pointer; }
         .btn-save { background: var(--primary-color); } .btn-delete { background: #C0392B; } .btn-cancel { background: #6C7A89; }
-        .empty-state { text-align: center; padding: 40px 10px; opacity: 0.7; }
+
+        /* MODALS */
+        .modal { display: none; position: fixed; z-index: 200; inset: 0; background-color: rgba(0,0,0,.65); backdrop-filter: blur(3px); overflow-y: auto; padding: 20px 15px; }
+        .modal-content { background-color: var(--card-bg); color: var(--text-color); margin: 5% auto; padding: 24px; width: 100%; max-width: 620px; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.4); position: relative; line-height: 1.65; }
+        .close-modal { position: absolute; top: 14px; right: 18px; font-size: 28px; font-weight: bold; cursor: pointer; opacity: .7; }
+        .modal-content h2 { margin-top: 0; color: var(--primary-color); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; font-size: 21px; }
     </style>
 </head>
 <body>
 
+    <!-- SPLASH SCREEN (NEW) -->
+    <div id="splashScreen">
+        <div class="splash-logo">All Notepad Pro</div>
+        <div class="splash-dev">By Naveed Ali</div>
+    </div>
+
     <div id="sideOverlay" class="side-overlay" onclick="closeNav()"></div>
+    
+    <!-- FULL SIDE MENU -->
     <div id="mySidenav" class="side-menu">
         <div class="menu-header">
             <button class="close-btn" onclick="closeNav()">&times;</button>
-            <h2>All Notepad Pro</h2><p>Developer: Naveed Ali</p>
+            <h2>All Notepad Pro</h2>
+            <p>Developer: Naveed Ali</p>
         </div>
         <div class="menu-links">
             <a onclick="showView('list')">🏠 Home (Notes)</a>
             <a onclick="openThemes()">🎨 Arts & Themes</a>
+            <a onclick="showModal('aboutModal')">👨‍💻 About Me</a>
+            <a onclick="showModal('privacyModal')">🔒 Privacy Policy</a>
+            <a onclick="showModal('termsModal')">📄 Terms & Conditions</a>
         </div>
     </div>
 
@@ -137,9 +131,15 @@
             <h3>🎨 Select Theme</h3>
             <select id="themeSelect" class="theme-select" onchange="previewTheme()">
                 <option value="light">Light Mode (Default)</option>
-                <option value="dark">Dark Night</option>
-                <option value="ocean">Ocean Blue</option>
-                <option value="purple">Orchid Purple</option>
+                <option value="dark">Dark Night Theme</option>
+                <option value="gold">Royal Gold Theme</option>
+                <option value="ocean">Ocean Blue Theme</option>
+                <option value="forest">Forest Green Theme</option>
+                <option value="crimson">Sunset Crimson Theme</option>
+                <option value="purple">Classic Orchid Purple Theme</option>
+                <option value="cyberpunk">Cyberpunk Neon Theme</option>
+                <option value="lavender">Lavender Soft Theme</option>
+                <option value="chocolate">Chocolate Brown Theme</option>
             </select>
             <button class="theme-save-btn" onclick="saveTheme()">💾 Save Theme & Trigger Ad</button>
         </div>
@@ -148,6 +148,10 @@
         
         <div id="emptyState" class="empty-state">
             <h2>No Notes Found</h2><p>Tap + to create a secure note.</p>
+        </div>
+
+        <div class="footer-copy">
+            &copy; 2026 Naveed Ali. All Rights Reserved.
         </div>
 
         <button class="fab" id="fabBtn" onclick="openEditor()">+</button>
@@ -163,9 +167,46 @@
         </div>
     </div>
 
-    <!-- THIS IS WHERE THE APP BUILDER WILL INJECT THE NATIVE ADMOB BANNER -->
-    <div class="admob-banner-container" id="adContainer"></div>
+    <!-- ADMOB BANNER SPACE (App Builder will target this) -->
+    <div class="admob-banner-container" id="adContainer">
+        [AdMob Banner Placeholder]
+    </div>
 
+    <!-- MODALS SECTION -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('aboutModal')">&times;</span>
+            <h2>About Developer</h2>
+            <p><strong>Developer:</strong> Naveed Ali</p>
+            <p><strong>Application:</strong> All Notepad Pro</p>
+            <p><strong>Version:</strong> 2.0.0 (Production Release)</p>
+            <div style="background: var(--primary-color); color: #fff; padding: 16px; border-radius: 10px; margin: 18px 0; text-align: center; font-weight: 600;">"All my ideas are unique — Crafted for security, speed, and simplicity."</div>
+            <p>Developed by Naveed Ali, this application provides a fast, customizable, and 100% offline note-taking experience.</p>
+        </div>
+    </div>
+
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('privacyModal')">&times;</span>
+            <h2>Privacy Policy</h2>
+            <p><strong>Last Updated: October 2026</strong></p>
+            <h3>1. Local Data Storage</h3><p>All data is stored locally on your device. We do not transmit or share your private notes.</p>
+            <h3>2. Google AdMob</h3><p>We use Google AdMob for advertisements. AdMob may collect non-personal device identifiers.</p>
+            <h3>3. Developer Contact</h3><p>Contact Naveed Ali for any privacy-related queries.</p>
+        </div>
+    </div>
+
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('termsModal')">&times;</span>
+            <h2>Terms & Conditions</h2>
+            <p><strong>Effective Date: October 2026</strong></p>
+            <h3>1. Intellectual Property</h3><p>All source code and designs are the property of Naveed Ali. Unauthorized copying is prohibited.</p>
+            <h3>2. User Responsibility</h3><p>You are responsible for backing up your notes. Uninstalling the app will erase saved data.</p>
+        </div>
+    </div>
+
+    <!-- SCRIPT SECTION -->
     <script>
         let notesData = [];
         const appView = document.getElementById('app');
@@ -173,18 +214,32 @@
         const headerTitle = document.getElementById('header-title');
         const fabBtn = document.getElementById('fabBtn');
 
-        // ADMOB INTERSTITIAL TRICK FUNCTION (Calls App Builder SDK)
+        // REMOVE SPLASH SCREEN LOGIC
+        function removeSplashScreen() {
+            setTimeout(() => {
+                const splash = document.getElementById('splashScreen');
+                if (splash) {
+                    splash.style.opacity = '0';
+                    setTimeout(() => splash.style.visibility = 'hidden', 500);
+                }
+            }, 2000); // Splash screen stays for 2 seconds
+        }
+
+        // ADMOB INTERSTITIAL TRICK FUNCTION
         function triggerAppBuilderAd() {
             try {
                 if (typeof AppCreator24 !== 'undefined') { AppCreator24.showInterstitial(); }
                 else if (typeof Android !== 'undefined' && Android.showInterstitial) { Android.showInterstitial(); }
-                else { console.log("Ad Triggered: Waiting for App Builder APK Environment."); }
+                else { console.log("Waiting for App Builder APK to show Interstitial Ad."); }
             } catch (e) { console.log("Ad Error: ", e); }
         }
 
-        function openNav() { document.getElementById("mySidenav").style.width = "260px"; document.getElementById("sideOverlay").style.display = "block"; }
+        function openNav() { document.getElementById("mySidenav").style.width = "280px"; document.getElementById("sideOverlay").style.display = "block"; }
         function closeNav() { document.getElementById("mySidenav").style.width = "0"; document.getElementById("sideOverlay").style.display = "none"; }
         
+        function showModal(id) { closeNav(); document.getElementById(id).style.display = "block"; }
+        function closeModal(id) { document.getElementById(id).style.display = "none"; }
+
         function showView(view) {
             closeNav();
             if (view === 'list') {
@@ -214,7 +269,7 @@
             localStorage.setItem('notepad_theme', val);
             applyTheme(val);
             document.getElementById('themeCard').style.display = 'none';
-            triggerAppBuilderAd(); // TRICK: Shows Ad when theme is saved
+            triggerAppBuilderAd(); // TRICK: Shows Ad
         }
 
         function loadNotes() {
@@ -226,9 +281,9 @@
             document.getElementById('themeSelect').value = savedTheme;
         }
 
-        // DIRECT HOME SCREEN DELETE FUNCTION (Stop Propagation prevents note from opening)
+        // REALISTIC DIRECT DELETE FUNCTION
         function deleteNoteFromHome(idx, event) {
-            event.stopPropagation(); 
+            event.stopPropagation(); // Prevents Note from Opening
             if (confirm("Are you sure you want to delete this note?")) {
                 notesData.splice(idx, 1);
                 localStorage.setItem("all_notepad_pro_db", JSON.stringify(notesData));
@@ -251,13 +306,16 @@
                     card.className = "note-card";
                     card.onclick = () => editNote(idx);
                     
-                    // UPDATED UI: Added Direct Delete (Trash) Icon on Home Screen Cards
+                    // REALISTIC TRASH ICON ON CARDS
                     card.innerHTML = `
                         <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-                            <h3 style="margin:0 0 8px; font-size:17px; word-break:break-word; width:85%;">${note.title ? note.title.replace(/</g, "&lt;") : 'Untitled'}</h3>
-                            <div onclick="deleteNoteFromHome(${idx}, event)" style="font-size:22px; color:#C0392B; padding:5px; cursor:pointer; line-height:1; margin-top:-5px; margin-right:-5px;" title="Delete Note">🗑️</div>
+                            <h3 style="margin:0 0 8px; font-size:17px; word-break:break-word; width:80%;">${note.title ? note.title.replace(/</g, "&lt;") : 'Untitled'}</h3>
+                            <div class="delete-icon" onclick="deleteNoteFromHome(${idx}, event)" title="Delete Note">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                            </div>
                         </div>
                         <p style="margin:0; opacity:.75; font-size:14px; word-break:break-word; overflow-wrap:anywhere; white-space:pre-wrap; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;">${note.body ? note.body.replace(/</g, "&lt;") : ''}</p>
+                        <span class="note-date">${note.date || ''}</span>
                     `;
                     container.appendChild(card);
                 });
@@ -287,11 +345,13 @@
             const idx = parseInt(document.getElementById('editIndex').value);
             if (!title && !body) return;
 
-            if (idx === -1) { notesData.unshift({ id: Date.now().toString(), title, body }); } 
-            else { notesData[idx].title = title; notesData[idx].body = body; const item = notesData.splice(idx, 1)[0]; notesData.unshift(item); }
+            const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+
+            if (idx === -1) { notesData.unshift({ id: Date.now().toString(), title, body, date }); } 
+            else { notesData[idx].title = title; notesData[idx].body = body; notesData[idx].date = date; const item = notesData.splice(idx, 1)[0]; notesData.unshift(item); }
             
             localStorage.setItem("all_notepad_pro_db", JSON.stringify(notesData));
-            triggerAppBuilderAd(); // TRICK: Shows Ad when note is saved
+            triggerAppBuilderAd(); // TRICK: Shows Ad
             showView('list');
         }
 
@@ -304,8 +364,10 @@
             }
         }
 
-        window.onload = loadNotes;
+        window.onload = () => {
+            loadNotes();
+            removeSplashScreen(); // Trigger Splash Screen Disappearance
+        };
     </script>
 </body>
 </html>
-
