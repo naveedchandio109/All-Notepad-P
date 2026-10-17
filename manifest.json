@@ -1,0 +1,22 @@
+{
+  "name": "All Notepad Pro",
+  "short_name": "All Notepad Pro",
+  "description": "A fast and secure offline notepad.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "dir": "ltr",
+  "orientation": "any",
+  "scope": "/",
+  "categories": [
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
